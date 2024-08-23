@@ -1,17 +1,21 @@
-<form action="" class="login-form">
+<form action="" class="login-form" [formGroup]="form">
     <h1 class="h1 mb60">Вход</h1>
 
     <label class="tt-control-label mb16">
         Telegram username
-        <input class="tt-input" type="text" placeholder="Введите логин">
+        <input
+            formControlName="username" 
+            class="tt-input" type="text" placeholder="Введите логин">
     </label>
 
     <label class="tt-control-label mb32">
         Пароль
-        <input class="tt-input" type="text" placeholder="Введите логин">
+        <input
+            formControlName="password" 
+            class="tt-input" type="text" placeholder="Введите логин">
     </label>
 
-    <button class="btn">Войти</button>
+    <button class="btn" type="submit">Войти</button>
 
 </form>
 
