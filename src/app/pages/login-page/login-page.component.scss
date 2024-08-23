@@ -1,0 +1,12 @@
+:host{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100dvh;
+    align-items: center;
+    margin: 0 5%;
+}
+.login-svg{
+    filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(103%) contrast(103%);
+    width: 500px;
+    height: 500px;
+}
