@@ -13,4 +13,5 @@ export class LoginPageComponent {
     username: new FormControl(null),
     password: new FormControl(null)
   })
+  test:string = ''
 }
