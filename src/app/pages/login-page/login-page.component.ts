@@ -18,8 +18,8 @@ export class LoginPageComponent {
   router = inject(Router);
 
   form = new FormGroup({
-    username: new FormControl<string | null>(null, Validators.required),
-    password: new FormControl<string | null>(null, Validators.required)
+    username: new FormControl<string | null>('razzz1n', Validators.required),
+    password: new FormControl<string | null>('dGh7UVIkU1', Validators.required)
   })
 
   constructor(){
