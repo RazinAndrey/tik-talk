@@ -25,14 +25,7 @@ export class LoginPageComponent {
     password: new FormControl<string | null>('dGh7UVIkU1', Validators.required)
   })
 
-  constructor(){
-    // RxJS
-   from([1, 2, 3]).pipe(
-    map(v => v * 2),
-    take(1),
-    delay(1000)
-   ).subscribe(v => console.log(v));
-  }
+  constructor(){}
 
   onSubmit(){
     if(this.form.valid){

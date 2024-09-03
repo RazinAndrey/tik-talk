@@ -35,6 +35,6 @@
     cursor: pointer;
 }
 
-.active{
-    filter: invert(61%) sepia(49%) saturate(3411%) hue-rotate(221deg) brightness(96%) contrast(111%);
+.password-eye-btn.active{
+    color: var(--primary-color);
 }
