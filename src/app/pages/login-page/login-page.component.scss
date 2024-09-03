@@ -5,8 +5,36 @@
     align-items: center;
     margin: 0 5%;
 }
+
 .login-svg{
     filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(103%) contrast(103%);
     width: 500px;
     height: 500px;
+}
+
+.login-form{
+    width: 400px;
+}
+
+.login-form, .big-logo {
+    place-self: center;
+}
+
+.password-input {
+    position: relative;
+}
+
+.password-eye-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px;
+    background: none;
+    border: none;
+    color: #FFFFFFBF;
+    cursor: pointer;
+}
+
+.active{
+    filter: invert(61%) sepia(49%) saturate(3411%) hue-rotate(221deg) brightness(96%) contrast(111%);
 }
