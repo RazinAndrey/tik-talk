@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: `svg[icon]`,
+  selector: 'svg[icon]',
   standalone: true,
   imports: [],
   template: '<svg:use [attr.href]="href"></svg:use>',
