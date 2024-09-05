@@ -1,7 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 import { AuthService } from '../../auth/auth.service';
-import { delay, from, map, take, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { NgClass } from '@angular/common';
 
