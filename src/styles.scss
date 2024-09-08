@@ -7,6 +7,7 @@
     --primary-color: #ae7aff;
     --gray-color: #5f646d;
     --dark-hover-color: #161616;
+    --light-transparent-color: rgba(255, 255, 255, 0.75);
 }
 
 *,
@@ -125,4 +126,34 @@ body{
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
+}
+
+.tt-form-lable{
+    display: flex;
+    flex-direction: column;
+    gap: 16px; 
+}
+
+.tt-form-lable__text{
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    color: var(--light-transparent-color);
+}
+
+.tt-form-input{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    border: none;
+    background: none;
+    border-bottom: 1px solid var(--light-color);
+    color: var(--light-color);
+    height: 33px;
+
+    &:focus-visible{
+        outline: 1px solid var(--primary-color);
+    }
 }

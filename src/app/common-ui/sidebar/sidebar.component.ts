@@ -22,14 +22,14 @@ export class SidebarComponent {
       link: ''
     },
     {
-      lable: 'Chats',
-      icon: 'chats',
-      link: 'chats'
+      lable: 'Search',
+      icon: 'search',
+      link: 'search'
     },
     {
       lable: 'Chats',
-      icon: 'search',
-      link: 'search'
+      icon: 'chats',
+      link: 'chats'
     }
   ];
 
