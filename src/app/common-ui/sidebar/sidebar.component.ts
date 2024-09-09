@@ -19,7 +19,7 @@ export class SidebarComponent {
     { 
       lable: 'My Page',
       icon: 'home',
-      link: ''
+      link: 'profile/me'
     },
     {
       lable: 'Search',

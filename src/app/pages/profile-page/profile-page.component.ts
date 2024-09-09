@@ -17,7 +17,9 @@ import { PostFeedComponent } from "./post-feed/post-feed.component";
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.scss'
 })
+
 export class ProfilePageComponent {
+  
   profileService = inject(ProfileService);
   route = inject(ActivatedRoute);
 

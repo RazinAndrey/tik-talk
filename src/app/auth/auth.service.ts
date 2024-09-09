@@ -28,7 +28,11 @@ export class AuthService {
     return !! this.token;
   }
 
-  login(payload: {username: string, password: string}){
+  login(payload: {username: string | null, password: string | null}){
+
+    if(payload.username === null || payload.password === null){
+      return;
+    }
     
     const fd: FormData = new FormData();
 

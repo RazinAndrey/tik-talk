@@ -31,7 +31,7 @@ export class ProfileService {
   }
 
   me = signal<Profile | null>(null);
-
+                                
   getMe(){ 
     return this.http.get<Profile>(`${this.baseApiUrl}account/me`)
       .pipe(
@@ -41,5 +41,10 @@ export class ProfileService {
 
   getAccount(id: string){
     return this.http.get<Profile>(`${this.baseApiUrl}account/${id}`);
+  }
+
+  patchProfile(profile: Partial<Profile>){
+    console.log(profile)
+    return this.http.patch<Profile>(`${this.baseApiUrl}account/me`, profile);
   }
 }

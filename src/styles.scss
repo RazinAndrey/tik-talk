@@ -157,3 +157,8 @@ body{
         outline: 1px solid var(--primary-color);
     }
 }
+
+.tt-textarea {
+    height: 84px;
+    resize: none;
+}

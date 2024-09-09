@@ -3,10 +3,10 @@
 <nav>
     <ul class="main-menu-list">
         <li *ngFor="let menuItem of menuItems">
-            <button class="menu-item">
+            <a class="menu-item" [routerLink]="[menuItem.link]">
                 <svg [icon]="menuItem.icon"></svg>
                 <span>{{menuItem.lable}}</span>
-            </button>
+            </a>
         </li>
     </ul>
 </nav>
@@ -36,7 +36,6 @@
             } @else {
                 <img src="/assets/imgs/avatar-placeholder.png" alt="#">
             }
-    
             <div class="medium-text username-text">{{me.username}}</div>
         </div>
        
