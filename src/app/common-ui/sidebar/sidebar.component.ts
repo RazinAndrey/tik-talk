@@ -21,16 +21,18 @@ export class SidebarComponent {
       icon: 'home',
       link: 'profile/me'
     },
+    
     {
-      lable: 'Search',
+      lable: 'Chats',
       icon: 'chats',
       link: 'chats'
     },
     {
-      lable: 'Chats',
+      lable: 'Search',
       icon: 'search',
       link: 'search'
-    }
+    },
+
   ];
 
   profileService = inject(ProfileService);
