@@ -14,18 +14,19 @@ export class AvatarUploadComponent {
 
   preview  = signal<string>('/assets/imgs/avatar-placeholder.png');
 
+  // для передачи на сервер
   avatar: File | null = null;
 
+  // файл
   fileBrowserHandler(event: Event){
-
-    console.log(event);
 
     const file = (event.target as HTMLInputElement)?.files?.[0];
 
     this.proccessFile(file);
-  
+
   }
 
+  // связываем dnd и файл
   onFileDroped(file: File){
     this.proccessFile(file);
   }
@@ -35,8 +36,10 @@ export class AvatarUploadComponent {
 
     const reader = new FileReader();
 
-    reader.onload = (event) =>{
-      this.preview.set(event.target?.result?.toString() ?? '')
+    // когда файл прогрузился браузером 
+    reader.onload = (event) => {
+      // закидываем в превью
+      this.preview.set(event.target?.result?.toString() ?? '');
     }
 
     reader.readAsDataURL(file);

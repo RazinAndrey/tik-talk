@@ -41,8 +41,10 @@ export class DndDirective{
 
         this.fileover = false;
 
-        // событие (картинка)
+        // событие (наша картинка)
         this.fileDropped.emit(event.dataTransfer?.files[0]); 
     }
 
 }
+
+// что нужно чтоб сработал при дропе сработал наш обраточкик fileBrowserHandler

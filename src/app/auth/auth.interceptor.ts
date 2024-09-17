@@ -1,10 +1,11 @@
 import { HttpHandlerFn, HttpInterceptorFn, HttpRequest } from "@angular/common/http";
 import { AuthService } from "./auth.service";
 import { inject } from "@angular/core";
-import { catchError, switchMap, throwError } from "rxjs";
+import { BehaviorSubject, catchError, filter, switchMap, tap, throwError } from "rxjs";
 
-let isRefreshing: boolean = false;
+let isRefreshing$ = new BehaviorSubject<boolean>(false);
 
+// пришел запрос 
 export const authTokenInterceptor: HttpInterceptorFn = (req, next) => {
 
     const authService = inject(AuthService)
@@ -12,13 +13,17 @@ export const authTokenInterceptor: HttpInterceptorFn = (req, next) => {
 
     if(!token) return next(req);
 
-    if(isRefreshing){
+    // по второму разу идем сюда
+    if(isRefreshing$.value){
         return refreshAndProcced(authService, req, next); 
     }
 
+    // пришел запрос с протукшим токеном
     return next(addToken(req, token)).pipe(
+        // получили ошибку 403
         catchError((error) => {
             if(error.status === 403){
+                // отправили refreshAndProcced
                 return refreshAndProcced(authService, req, next);
             }
             return throwError(() => error);
@@ -31,18 +36,29 @@ const refreshAndProcced = (
     req: HttpRequest<any>, 
     next: HttpHandlerFn
 ) => {
-    if(!isRefreshing){
-        isRefreshing = true
+    // рефрешим? нет
+    if(!isRefreshing$.value){
+        // меняем флаг
+        isRefreshing$.next(true);
+        // отправили запрос refreshAuthToken()
         return authService.refreshAuthToken().pipe(
             switchMap((res) => {
-                isRefreshing = false;
-                return next(addToken(  req, res.access_token));
+                return next(addToken(req, res.access_token)).pipe(
+                    tap(() => isRefreshing$.next(false))
+                )
             })
         )
     }
+
+    // по второму разу идем сюда и возвращаем токен
+    if(req.url.includes('refresh')) return next(addToken(req, authService.token!))
  
-    return next(addToken(req, authService.token!));
-   
+    return isRefreshing$.pipe(
+        filter(isRefreshing => !isRefreshing),
+        switchMap(() => {
+            return next(addToken(req, authService.token!));
+        })
+    )
 }
 
 const addToken = (req: HttpRequest<any>, token: string) => {

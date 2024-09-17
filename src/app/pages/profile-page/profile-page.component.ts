@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ProfileHeaderComponent } from "../../common-ui/profile-header/profile-header.component";
 import { ProfileService } from '../../data/services/profile.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { AsyncPipe, NgFor } from '@angular/common';
@@ -22,7 +22,8 @@ export class ProfilePageComponent {
   
   profileService = inject(ProfileService);
   route = inject(ActivatedRoute);
-
+  router = inject(Router);
+  
   me$ = toObservable(this.profileService.me);
 
   subscribers$ = this.profileService.getSubscriberShortList(5);
@@ -35,6 +36,12 @@ export class ProfilePageComponent {
           return this.me$;
         }
         return this.profileService.getAccount(id);
-      })
-    ) 
+      }
+    )
+  ) 
+  
+  // Метод для проверки URL
+  isCurrentUrl(url: string): boolean {
+    return this.router.url === url;
+  }
 }
