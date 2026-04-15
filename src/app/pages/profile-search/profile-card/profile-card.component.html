@@ -1,0 +1,40 @@
+@if (account(); as account) {
+  <section class="profile-card">
+    <div class="avatar-block">
+      <div class="conteiner-avatar-img">
+        <img
+          alt=""
+          height="70"
+          width="70"
+          [ngSrc]="account.avatarUrl | imgUrl"
+        />
+      </div>
+
+      <div class="name-block">
+        <strong class="h6"
+          >{{ account.firstName }} {{ account.lastName }}</strong
+        >
+        <span class="p-14px-regular">{{ account.username }}</span>
+      </div>
+    </div>
+
+    <div class="description-block">
+      <p class="p-12px-medium">{{ account.description }}</p>
+    </div>
+
+    <div class="tags-block">
+      @for (tag of account.stack; track $index) {
+        <div class="skill-tag">{{ tag }}</div>
+      }
+    </div>
+
+    <div class="buttons-block">
+      <button class="btn-primary-default" type="button">
+        <div class="body-button">
+          <p class="text-btn-14px">Подписаться</p>
+        </div>
+      </button>
+      <button class="btn-primary-default" type="button">!</button>
+    </div>
+  </section>
+}

@@ -1,0 +1,32 @@
+.btn-primary-default {
+  border: none;
+  background: var(--primary-color);
+  color: var(--dark-color);
+  padding: 0 20px 0 20px;
+  width: 100%;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  border: 1px solid var(--dark-color);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  height: 44px;
+
+  &:hover {
+    background:
+      linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      linear-gradient(0deg, #ae7aff, #ae7aff);
+  }
+
+  &:active {
+    background:
+      linear-gradient(0deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+      linear-gradient(0deg, #ae7aff, #ae7aff);
+  }
+}
+
+.body-button {
+  display: flex;
+  gap: 8px;
+}

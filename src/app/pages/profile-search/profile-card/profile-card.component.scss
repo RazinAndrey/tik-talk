@@ -1,0 +1,52 @@
+.profile-card {
+  border: 1px solid var(--light-color);
+  padding: 32px 24px;
+  display: grid;
+  grid-template-columns: auto 1fr 200px auto;
+  grid-gap: 32px;
+  width: 100%;
+  align-items: center;
+}
+
+.avatar-block {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  grid-gap: 20px;
+  align-items: center;
+
+  .conteiner-avatar-img {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 70px;
+    height: 70px;
+  }
+
+  .name-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.tags-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.buttons-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* Для планшетов */
+@media (max-width: 1024px) {
+  .profile-card {
+    grid-template-columns: 1fr;
+  }
+
+  .buttons-block {
+    justify-content: right;
+  }
+}

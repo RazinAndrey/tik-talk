@@ -1,0 +1,38 @@
+<section class="container-form">
+  <form class="login-form" [formGroup]="formLogin">
+    <h1 class="h1 mb-60px">Вход</h1>
+
+    <label class="tt-control-lable-login mb-16px" for="username">
+      Telegram username
+      <input
+        class="tt-control-input-login"
+        id="username"
+        placeholder="Введите логин "
+        type="text"
+        [formControl]="formLogin.controls.username"
+      />
+    </label>
+
+    <label class="tt-control-lable-login mb-32px" for="password">
+      Пароль
+      <input
+        class="tt-control-input-login"
+        id="password"
+        placeholder="Введите пароль"
+        type="password"
+        [formControl]="formLogin.controls.password"
+      />
+    </label>
+
+    <button class="btn-primary-default" type="submit">Войти</button>
+  </form>
+
+  <img
+    alt=""
+    class="logo-img"
+    ngSrc="assets/icons/logo-big.svg"
+    priority
+    [height]="440"
+    [width]="430"
+  />
+</section>
