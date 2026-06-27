@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  OnInit,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { AccountService } from '../../core/services/account.service';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { Account } from '../../core/interfaces/api/account.model';

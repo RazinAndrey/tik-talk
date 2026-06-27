@@ -1,0 +1,9 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "rules": {
+    "no-empty-source": null,
+    "at-rule-disallowed-list": ["import"],
+    "selector-pseudo-element-no-unknown": [true, { "ignorePseudoElements": ["ng-deep"] }],
+    "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["host", "host-context"] }]
+  }
+}

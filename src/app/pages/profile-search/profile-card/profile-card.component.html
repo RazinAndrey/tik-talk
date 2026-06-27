@@ -2,18 +2,11 @@
   <section class="profile-card">
     <div class="avatar-block">
       <div class="conteiner-avatar-img">
-        <img
-          alt=""
-          height="70"
-          width="70"
-          [ngSrc]="account.avatarUrl | imgUrl"
-        />
+        <img alt="" height="70" width="70" [ngSrc]="account.avatarUrl | imgUrl" />
       </div>
 
       <div class="name-block">
-        <strong class="h6"
-          >{{ account.firstName }} {{ account.lastName }}</strong
-        >
+        <strong class="h6">{{ account.firstName }} {{ account.lastName }}</strong>
         <span class="p-14px-regular">{{ account.username }}</span>
       </div>
     </div>

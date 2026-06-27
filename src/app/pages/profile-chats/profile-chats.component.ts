@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './profile-chats.component.html',
-  styleUrl: './profile-chats.component.scss'
+  styleUrl: './profile-chats.component.scss',
 })
-export class ProfileChatsComponent {
-
-}
+export class ProfileChatsComponent {}
