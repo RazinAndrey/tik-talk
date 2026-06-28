@@ -1,4 +1,4 @@
-export type Account = {
+export interface IAccount {
   id: number;
   username: string;
   avatarUrl: string;
@@ -9,4 +9,4 @@ export type Account = {
   stack: string[];
   city: string;
   description: string;
-};
+}

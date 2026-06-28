@@ -1,31 +1,8 @@
-@use 'assets/styles/tags';
-@use 'assets/styles/buttons';
-@use 'assets/styles/fonts';
-@use 'assets/styles/headlines';
-@use 'assets/styles/text-labels-for-buttons';
-@use 'assets/styles/margins';
-@use 'assets/styles/inputs';
-@use 'assets/styles/secondary-text-labels';
-
-:root {
-  --primary-color: #ae7aff;
-  --secondary-color-01: #fae8a4;
-  --secondary-color-02: #e99898;
-  --secondary-color-03: #98e9ab;
-  --grey-color: #5f646d;
-  --dark-color: #000;
-  --light-color: #fff;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'JetBrains Mono', sans-serif;
-  background: var(--dark-color);
-  color: var(--light-color);
-  background-image: url('/assets/images/background.png');
-}
+@use 'styles/variables';
+@use 'styles/reset';
+@use 'styles/fonts';
+@use 'styles/headlines';
+@use 'styles/text-labels-for-buttons';
+@use 'styles/margins';
+@use 'styles/secondary-text-labels';
+@use 'styles/scrollbar';

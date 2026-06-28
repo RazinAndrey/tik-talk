@@ -22,7 +22,7 @@ Angular 18 standalone-component SPA (no NgModules). Bootstrapped from [src/main.
 ### Directory layout (`src/app/`)
 
 - `core/services/` — singleton (`providedIn: 'root'`) services using the `inject(HttpClient)` pattern; return raw `Observable`s.
-- `core/interfaces/api/` and `core/interfaces/forms/` — `type` aliases (not interfaces — enforced by lint) for API models and form shapes.
+- `core/interfaces/api/` and `core/interfaces/forms/` — API model and form shapes (`type` or `interface`, both fine).
 - `components/` — shared structural components (layout shell, sidebar).
 - `pages/` — routed page components, each in its own folder (`*.component.{ts,html,scss}`); page-local subcomponents nest under the page folder.
 - `widgets/` — reusable presentational components.
@@ -34,7 +34,7 @@ These are enforced by [eslint.config.js](eslint.config.js) and the Angular schem
 
 - **Standalone components only**, with `changeDetection: ChangeDetectionStrategy.OnPush` and `style: scss` (schematic defaults).
 - **Signals over mutable fields** for component state (`signal<T>(...)`), and `inject()` over constructor injection.
-- **`type` not `interface`** (`consistent-type-definitions`), and `T[]` array syntax.
+- **`type` or `interface`** — both are allowed (`consistent-type-definitions` is off); use `T[]` array syntax.
 - **Explicit return types required** on all functions (`explicit-function-return-type: error`).
 - **No `public` modifier** — omit it (`explicit-member-accessibility: no-public`); use `private`/`protected` explicitly.
 - **Selectors**: components `app-` kebab-case (element or attribute); directives `app` camelCase attribute.

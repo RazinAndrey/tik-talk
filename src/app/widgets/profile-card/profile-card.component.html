@@ -1,1 +1,49 @@
-<p>profile-card works!</p>
+@let acc = account();
+
+<div class="author">
+  <div class="avatar">
+    <img
+      class="avatar__img"
+      width="70"
+      height="70"
+      [ngSrc]="acc.avatarUrl | imgUrl"
+      [alt]="acc.firstName + ' ' + acc.lastName"
+    />
+  </div>
+
+  <div class="name">
+    <strong class="h6">{{ acc.firstName }} {{ acc.lastName }}</strong>
+    <span class="text-14px-regular">{{ acc.username }}</span>
+  </div>
+</div>
+
+<p class="text-12px-medium">{{ acc.description }}</p>
+
+<ul class="tags">
+  @for (tag of acc.stack; track tag) {
+    <li>
+      <app-skill-tag [tag]="tag" />
+    </li>
+  }
+</ul>
+
+<div class="actions">
+  <button app-button type="button" variant="outline-purple" icon>
+    <img width="16" height="16" ngSrc="assets/icons/actions/signed.svg" alt="" />
+  </button>
+
+  @if (true) {
+    <button app-button type="button" variant="primary">
+      Подписаться <img width="16" height="16" ngSrc="assets/icons/actions/subscribe.svg" alt="" />
+    </button>
+  } @else {
+    <button app-button type="button" variant="primary">
+      Написать
+      <img width="16" height="16" ngSrc="assets/icons/actions/send.svg" alt="" />
+    </button>
+  }
+
+  <a app-button variant="primary" icon [routerLink]="['/profile', acc.id]">
+    <img width="16" height="16" ngSrc="assets/icons/actions/redirect.svg" alt="" />
+  </a>
+</div>

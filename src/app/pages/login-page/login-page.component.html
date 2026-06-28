@@ -1,0 +1,31 @@
+<div class="login-page">
+  <img class="login-page__logo" alt="" ngSrc="assets/icons/logo/logo-big.svg" priority [height]="440" [width]="430" />
+
+  <form class="login-page__form" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+    <h1 class="login-page__title">Вход</h1>
+
+    <label class="login-page__field" for="username">
+      <span class="login-page__label">Telegram username</span>
+      <input
+        class="login-page__input"
+        id="username"
+        placeholder="Введите логин"
+        type="text"
+        [formControl]="formLogin.controls.username"
+      />
+    </label>
+
+    <label class="login-page__field" for="password">
+      <span class="login-page__label">Пароль</span>
+      <input
+        class="login-page__input"
+        id="password"
+        placeholder="Введите пароль"
+        type="password"
+        [formControl]="formLogin.controls.password"
+      />
+    </label>
+
+    <button app-button class="login-page__submit" type="submit" variant="primary">Войти</button>
+  </form>
+</div>

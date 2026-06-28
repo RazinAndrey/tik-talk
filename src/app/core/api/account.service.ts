@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Account } from '../interfaces/api/account.model';
+import { IAccount } from '../interfaces/api/account.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class AccountService {
 
   private baseApiUrl = 'https://icherniakov.ru/yt-course';
 
-  getTestAccounts(): Observable<Account[]> {
-    return this.http.get<Account[]>(`${this.baseApiUrl}/account/test_accounts`);
+  getTestAccounts(): Observable<IAccount[]> {
+    return this.http.get<IAccount[]>(`${this.baseApiUrl}/account/test_accounts`);
   }
 }
