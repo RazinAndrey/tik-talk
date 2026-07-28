@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { SidebarComponent } from '../../widgets/sidebar/sidebar.component';
 import { RouterOutlet } from '@angular/router';
+import { AccountService } from '../../core/api/account.service';
 
 @Component({
   selector: 'app-layout-main',
@@ -10,4 +11,10 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './layout-main.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LayoutMainComponent {}
+export class LayoutMainComponent implements OnInit {
+  private accountService = inject(AccountService);
+
+  ngOnInit(): void {
+    this.accountService.getMe().subscribe();
+  }
+}

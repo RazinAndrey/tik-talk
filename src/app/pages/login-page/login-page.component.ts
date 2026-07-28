@@ -3,8 +3,9 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../../shared/ui/button/button.component';
 import { AuthService } from '../../core/api/auth.service';
+import { Router } from '@angular/router';
 
-type IFormLogin = {
+type FormLogin = {
   username: FormControl<string>;
   password: FormControl<string>;
 };
@@ -18,16 +19,19 @@ type IFormLogin = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginPageComponent {
-  authService = inject(AuthService);
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
-  formLogin = new FormGroup<IFormLogin>({
-    username: new FormControl<string>('', { nonNullable: true, validators: Validators.required }),
-    password: new FormControl<string>('', { nonNullable: true, validators: Validators.required }),
+  formLogin = new FormGroup<FormLogin>({
+    username: new FormControl<string>('razzz1n', { nonNullable: true, validators: Validators.required }),
+    password: new FormControl<string>('dmk9BKuYhw', { nonNullable: true, validators: Validators.required }),
   });
 
   onSubmit(): void {
     if (this.formLogin.valid) {
-      this.authService.login(this.formLogin.getRawValue());
+      this.authService.loginForAccessToken(this.formLogin.getRawValue()).subscribe(() => {
+        this.router.navigate(['']);
+      });
     }
   }
 }

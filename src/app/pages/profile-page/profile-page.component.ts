@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { AuthService } from '../../core/api/auth.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProfilePageComponent {}
+export class ProfilePageComponent {
+  authService = inject(AuthService);
+}
