@@ -1,9 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { ILoginRequest, ILoginResponse, IRefreshTokenRequest } from '../interfaces/api/auth.model';
-import { Observable, tap } from 'rxjs';
+import { catchError, Observable, tap, throwError } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../../../environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -11,12 +12,12 @@ import { environment } from '../../../environment';
 export class AuthService {
   private http = inject(HttpClient);
   private cookieService = inject(CookieService);
+  private router = inject(Router);
 
   private baseApiUrl = `${environment.apiUrl}/auth`;
 
   get isAuth(): boolean {
-    const token = this.cookieService.get('token');
-    return token ? true : false;
+    return !!this.cookieService.get('token');
   }
 
   loginForAccessToken(body: ILoginRequest): Observable<ILoginResponse> {
@@ -28,15 +29,21 @@ export class AuthService {
   }
 
   refreshToken(body: IRefreshTokenRequest): Observable<ILoginResponse> {
-    return this.http
-      .post<ILoginResponse>(`${this.baseApiUrl}/refresh`, body)
-      .pipe(tap((value) => this.saveTokens(value)));
+    return this.http.post<ILoginResponse>(`${this.baseApiUrl}/refresh`, body).pipe(
+      tap((value) => this.saveTokens(value)),
+      catchError((err: HttpErrorResponse) => {
+        this.cookieService.deleteAll();
+        this.router.navigate(['/login']);
+        return throwError(() => err);
+      }),
+    );
   }
 
   logout(): Observable<string> {
     return this.http.post<string>(`${this.baseApiUrl}/logout`, {}).pipe(
       tap(() => {
         this.cookieService.deleteAll();
+        this.router.navigate(['/login']);
       }),
     );
   }

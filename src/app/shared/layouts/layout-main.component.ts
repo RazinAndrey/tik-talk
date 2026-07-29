@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { SidebarComponent } from '../../widgets/sidebar/sidebar.component';
+import { SidebarComponent } from '../widgets/sidebar/sidebar.component';
 import { RouterOutlet } from '@angular/router';
 import { AccountService } from '../../core/api/account.service';
 

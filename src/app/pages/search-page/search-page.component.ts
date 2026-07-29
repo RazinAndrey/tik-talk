@@ -1,13 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { AccountService } from '../../core/api/account.service';
-import { ProfileCardComponent } from '../../widgets/profile-card/profile-card.component';
+import { ProfileCardComponent } from '../../shared/widgets/profile-card/profile-card.component';
 import { IAccount } from '../../core/interfaces/api/account.model';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-search-page',
   standalone: true,
-  imports: [ProfileCardComponent, JsonPipe],
+  imports: [ProfileCardComponent],
   templateUrl: './search-page.component.html',
   styleUrl: './search-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
