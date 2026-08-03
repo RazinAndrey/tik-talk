@@ -5,6 +5,8 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { LayoutMainComponent } from './shared/layouts/layout-main.component';
 import { authGuard } from './core/guards/auth.guard';
 import { noAuthGuard } from './core/guards/no-auth.guard';
+import { ChatsPageComponent } from './pages/chats-page/chats-page.component';
+import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 
 export const routes: Routes = [
   {
@@ -13,6 +15,9 @@ export const routes: Routes = [
     children: [
       { path: '', component: SearchPageComponent },
       { path: 'profile', component: ProfilePageComponent },
+      { path: 'chats', component: ChatsPageComponent },
+      { path: 'search', component: SearchPageComponent },
+      { path: 'settings', component: SettingsPageComponent },
     ],
     canActivate: [authGuard],
   },

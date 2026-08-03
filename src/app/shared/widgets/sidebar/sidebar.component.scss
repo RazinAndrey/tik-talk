@@ -17,42 +17,6 @@
   gap: 8px;
 }
 
-.sidebar-item {
-  height: 40px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 16px;
-  border: none;
-  background: inherit;
-  color: var(--light-color);
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 24px;
-  cursor: pointer;
-
-  &:hover {
-    border-radius: 2px;
-    background: #161616;
-  }
-}
-
-.chat {
-  position: relative;
-}
-
-.number-messages {
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  transform: translate(-50%, -50%);
-  background-color: var(--primary-color);
-  max-width: max-content;
-  padding: 2px 6px;
-  color: var(--dark-color);
-}
-
 .subscribers {
   flex: 1 0 auto;
   margin: 0 28px;
@@ -66,20 +30,6 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-  }
-
-  &__item {
-    display: flex;
-    gap: 12px;
-    padding: 8px 0;
-    align-items: center;
-    border: none;
-    background: inherit;
-    color: var(--light-color);
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 24px;
-    cursor: pointer;
   }
 
   &__all {
@@ -103,8 +53,4 @@
   top: 50%;
   right: 16px;
   transform: translate(-50%, -50%);
-}
-
-.img-border-radius {
-  border-radius: 50%;
 }

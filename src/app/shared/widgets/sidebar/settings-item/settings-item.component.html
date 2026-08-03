@@ -1,0 +1,7 @@
+@if (profile(); as profile) {
+  <button class="sidebar-item" type="button">
+    <img alt="" class="img-border-radius" [height]="32" [ngSrc]="profile.avatarUrl | imgUrl" [width]="32" />
+    <p>{{ profile.username }}</p>
+    <svg [icon]="'settings'" [directory]="'navbar'"></svg>
+  </button>
+}

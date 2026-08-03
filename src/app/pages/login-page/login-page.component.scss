@@ -91,7 +91,6 @@
   }
 }
 
-// планшет/мобильный: одна колонка, картинка над формой
 @media (width <= 1024px) {
   .login-page {
     grid-template-columns: 1fr;
@@ -107,6 +106,14 @@
     &__form {
       grid-row: 2;
       grid-column: 1;
+    }
+  }
+}
+
+@media (height <= 630px) {
+  .login-page {
+    &__logo {
+      display: none;
     }
   }
 }

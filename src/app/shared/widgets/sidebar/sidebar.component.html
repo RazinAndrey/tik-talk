@@ -1,34 +1,23 @@
 <img alt="" class="img-logo" priority [height]="74" [ngSrc]="'assets/icons/logo/logo-mini.svg'" [width]="61" />
 
-<div class="sidebar-list">
-  <button class="sidebar-item" type="button" [routerLink]="'/profile'">
-    <img alt="" priority [height]="12" [ngSrc]="'assets/icons/navbar/my-page.svg'" [width]="14" />
-    <p>Моя страница</p>
-  </button>
-
-  <div class="chat">
-    <button class="sidebar-item" type="button">
-      <img alt="" priority [height]="13" [ngSrc]="'assets/icons/navbar/chats.svg'" [width]="13" />
-      <p>Чаты</p>
-    </button>
-    <div class="number-messages text-btn-12px">28</div>
-  </div>
-
-  <button class="sidebar-item" type="button">
-    <img alt="" priority [height]="13" [ngSrc]="'assets/icons/navbar/search.svg'" [width]="13" />
-    <p>Поиск</p>
-  </button>
-</div>
+<nav>
+  <ul class="sidebar-list">
+    @for (item of menuItems; track $index) {
+      <li>
+        <app-sidebar-item [item]="item" />
+      </li>
+    }
+  </ul>
+</nav>
 
 <div class="subscribers">
   <p class="subscribers__title text-12px-medium">Подписчики</p>
 
   <div class="subscribers__list">
-    @for (subscriber of ['Сара Коннор', 'Кристанна Локен', 'Майкл Уинслоу']; track $index) {
-      <button class="subscribers__item" type="button">
-        <img alt="" class="img-border-radius" [height]="32" [ngSrc]="'assets/images/avatar.png'" [width]="32" />
-        <p>{{ subscriber }}</p>
-      </button>
+    @if (subscribers$ | async; as subscribers) {
+      @for (subscriber of subscribers; track $index) {
+        <pre>{{ subscriber.firstName }}</pre>
+      }
     }
   </div>
 
@@ -39,10 +28,7 @@
 </div>
 
 <div class="settings">
-  <button class="sidebar-item" type="button">
-    <img alt="" class="img-border-radius" [height]="32" [ngSrc]="'assets/images/avatar.png'" [width]="32" />
-    <p>ryan.gosling</p>
-  </button>
-
-  <img alt="" class="settings-icon" priority [height]="13" [ngSrc]="'assets/icons/navbar/settings.svg'" [width]="13" />
+  @if (profile(); as profile) {
+    <app-settings-item [profile]="profile" />
+  }
 </div>

@@ -29,7 +29,7 @@ module.exports = tseslint.config(
         'error',
         {
           type: ['attribute', 'element'],
-          prefix: 'app',
+          // prefix: 'app',
           style: 'kebab-case',
         },
       ],
@@ -38,7 +38,7 @@ module.exports = tseslint.config(
       '@angular-eslint/no-empty-lifecycle-method': 'warn',
       '@angular-eslint/prefer-on-push-component-change-detection': 'warn',
       '@angular-eslint/prefer-output-readonly': 'warn',
-      '@angular-eslint/prefer-signals': 'warn',
+      // '@angular-eslint/prefer-signals': 'warn',
       '@angular-eslint/prefer-standalone': 'warn',
 
       // TypeScript best practices

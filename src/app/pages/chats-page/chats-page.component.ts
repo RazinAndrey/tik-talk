@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-profile-chats',
+  selector: 'app-chats-page',
   standalone: true,
   imports: [],
-  templateUrl: './profile-chats.component.html',
-  styleUrl: './profile-chats.component.scss',
+  templateUrl: './chats-page.component.html',
+  styleUrl: './chats-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProfileChatsComponent {}
+export class ChatsPageComponent {}

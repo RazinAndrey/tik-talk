@@ -1,0 +1,9 @@
+@if (item(); as item) {
+  <a class="sidebar-item" [routerLink]="item.link">
+    <svg [icon]="item.icon" [directory]="'navbar'" [width]="14" [height]="14"></svg>
+    <p>{{ item.label }}</p>
+    @if (item.label === 'Чаты') {
+      <span class="number-messages text-btn-12px">28</span>
+    }
+  </a>
+}
