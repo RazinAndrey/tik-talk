@@ -1,4 +1,13 @@
-<app-sidebar />
+<button class="burger" (click)="toggleSidebar()" [style]="">
+  <svg [directory]="'navbar'" [height]="14" [icon]="'burger'" [width]="18"></svg>
+</button>
+
+<!-- затемнение фона при открытом меню -->
+<!-- @if (sidebarOpen()) {
+  <div class="overlay" (click)="closeSidebar()"></div>
+} -->
+
+<app-sidebar [class.open]="sidebarOpen()" />
 
 <main class="main-content">
   <router-outlet />

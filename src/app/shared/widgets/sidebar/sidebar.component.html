@@ -10,25 +10,34 @@
   </ul>
 </nav>
 
-<div class="subscribers">
+<section class="subscribers">
   <p class="subscribers__title text-12px-medium">Подписчики</p>
-
-  <div class="subscribers__list">
-    @if (subscribers$ | async; as subscribers) {
+  @if (subscribers$ | async; as subscribers) {
+    <div class="subscribers__list">
       @for (subscriber of subscribers; track $index) {
-        <pre>{{ subscriber.firstName }}</pre>
+        <app-subscriber-card [profile]="subscriber" />
       }
-    }
-  </div>
+    </div>
 
-  <button class="subscribers__all" type="button">
-    <p class="text-12px-medium">Все подписчики</p>
-    <img alt="" priority [height]="9" [ngSrc]="'assets/icons/navbar/arrow.svg'" [width]="6" />
-  </button>
-</div>
-
-<div class="settings">
-  @if (profile(); as profile) {
-    <app-settings-item [profile]="profile" />
+    <a class="subscribers__all">
+      <p class="text-12px-medium">Все подписчики</p>
+      <img alt="" priority [height]="9" [ngSrc]="'assets/icons/navbar/arrow.svg'" [width]="6" />
+    </a>
+  } @else {
+    <div class="subscribers__list">
+      @for (subscriber of loaderSubscribers; track $index) {
+        <div class="subscribers__loader">
+          <app-loader />
+        </div>
+      }
+    </div>
   }
-</div>
+</section>
+
+<footer class="settings">
+  @if (me(); as me) {
+    <app-settings-item [profile]="me" />
+  } @else {
+    Загрузка...
+  }
+</footer>

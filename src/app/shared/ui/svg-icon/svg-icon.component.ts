@@ -9,8 +9,8 @@ type SvgIconDirectory = 'navbar' | '';
   template: '<svg:use [attr.href]="href()" />',
   styles: [''],
   host: {
-    '[attr.width]': 'width()',
-    '[attr.height]': 'height()',
+    '[attr.width]': 'width() ? width() : 14',
+    '[attr.height]': 'height() ? height() : 14',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

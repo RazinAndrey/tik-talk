@@ -2,8 +2,69 @@
   display: grid;
   grid-template-columns: 300px 1fr;
   height: 100vh;
+  position: relative;
 }
 
 .main-content {
   padding: 24px;
+}
+
+app-sidebar {
+  transition: transform 0.3s ease;
+}
+
+.burger {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 20;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--dark-color);
+}
+
+.overlay {
+  display: none;
+}
+
+@media (width <= 1200px) {
+  :host {
+    display: block; // отключаем grid, sidebar теперь position: fixed
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .main-content {
+    padding-top: 72px; // место под бургер
+  }
+
+  app-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 300px;
+    transform: translateX(-100%);
+    z-index: 15;
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgb(0 0 0 / 40%);
+    z-index: 10;
+  }
 }

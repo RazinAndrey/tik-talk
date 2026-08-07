@@ -1,6 +1,11 @@
 @if (profile(); as subscriber) {
   <a class="subscriber-card" type="button" [routerLink]="'/profile/' + subscriber.id">
     <img alt="" class="img-border-radius" [height]="32" [ngSrc]="subscriber.avatarUrl | imgUrl" [width]="32" />
-    <strong>{{ subscriber.firstName }} {{ subscriber.lastName }}</strong>
+
+    @if (subscriber.firstName && subscriber.lastName) {
+      <strong>{{ subscriber.firstName }} {{ subscriber.lastName }}</strong>
+    } @else {
+      <strong>{{ subscriber.username }} </strong>
+    }
   </a>
 }

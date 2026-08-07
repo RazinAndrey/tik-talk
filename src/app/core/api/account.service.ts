@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { IAccount, IGetSubscribers, Pageble } from '../interfaces/api/account.model';
-import { Observable, tap } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { environment } from '../../../environment';
 import { SignalStoreService } from '../services/signal-store';
 
@@ -18,6 +18,7 @@ export class AccountService extends SignalStoreService<IAccountState> {
   private baseApiUrl = `${environment.apiUrl}/account`;
 
   readonly me = signal<IAccount | null>(null);
+  readonly subscribers = signal<Pageble<IAccount> | null>(null);
 
   getTestAccounts(): Observable<IAccount[]> {
     return this.http.get<IAccount[]>(`${this.baseApiUrl}/test_accounts`);
@@ -35,11 +36,11 @@ export class AccountService extends SignalStoreService<IAccountState> {
 
   getSubscribers(data: Partial<IGetSubscribers>): Observable<Pageble<IAccount>> {
     let params = new HttpParams();
-
-    if (data.account_id) {
-      params = params.append('account_id', data.account_id);
+    if (data.size) {
+      params = params.set('size', data.size.toString());
     }
-
-    return this.http.get<Pageble<IAccount>>(`${this.baseApiUrl}/subscribers`, { params });
+    return this.http
+      .get<Pageble<IAccount>>(`${this.baseApiUrl}/subscribers/${data.account_id}`, { params })
+      .pipe(tap((result) => this.subscribers.set(result)));
   }
 }
