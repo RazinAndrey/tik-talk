@@ -5,20 +5,13 @@
   position: relative;
 }
 
-.main-content {
-  padding: 24px;
-}
-
-app-sidebar {
-  transition: transform 0.3s ease;
+.header {
+  background: var(--dark-color);
+  margin-bottom: 16px;
+  display: none;
 }
 
 .burger {
-  display: none;
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  z-index: 20;
   width: 40px;
   height: 40px;
   align-items: center;
@@ -26,16 +19,29 @@ app-sidebar {
   background: transparent;
   border: none;
   cursor: pointer;
-  color: var(--dark-color);
+  color: var(--light-color);
+
+  &:hover {
+    color: var(--primary-color);
+  }
 }
 
 .overlay {
   display: none;
 }
 
+app-sidebar {
+  transition: transform 0.3s ease;
+}
+
+.main-content {
+  padding: 24px;
+  overflow: auto;
+}
+
 @media (width <= 1200px) {
   :host {
-    display: block; // отключаем grid, sidebar теперь position: fixed
+    display: block;
   }
 
   .burger {
