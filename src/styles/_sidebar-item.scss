@@ -1,10 +1,9 @@
-.sidebar-item {
+@mixin sidebar-item {
   position: relative;
-  height: 40px;
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 0 16px;
+  min-height: 40px;
   border: none;
   background: inherit;
   color: var(--light-color);
@@ -12,7 +11,6 @@
   font-size: 14px;
   line-height: 24px;
   cursor: pointer;
-  width: 100%;
 
   &:hover,
   &:focus-visible {
@@ -24,15 +22,4 @@
   &:active {
     transform: scale(0.98);
   }
-}
-
-.number-messages {
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  transform: translate(-50%, -50%);
-  background-color: var(--primary-color);
-  max-width: max-content;
-  padding: 2px 6px;
-  color: var(--dark-color);
 }

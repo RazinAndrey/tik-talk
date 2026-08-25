@@ -4,13 +4,13 @@ import { RouterLink } from '@angular/router';
 import { SvgIconComponent } from '../../../ui/svg-icon/svg-icon.component';
 
 @Component({
-  selector: 'app-sidebar-item',
+  selector: 'app-sidebar-nav-item',
   standalone: true,
   imports: [SvgIconComponent, RouterLink],
-  templateUrl: './sidebar-item.component.html',
-  styleUrl: './sidebar-item.component.scss',
+  templateUrl: './sidebar-nav-item.component.html',
+  styleUrl: './sidebar-nav-item.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidebarItemComponent {
+export class SidebarNavItemComponent {
   item = input.required<MenuItem>();
 }

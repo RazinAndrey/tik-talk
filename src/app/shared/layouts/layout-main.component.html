@@ -2,6 +2,8 @@
   <button class="burger" type="button" (click)="toggleSidebar()">
     <svg [directory]="'navbar'" [height]="14" [icon]="'burger'" [width]="18"></svg>
   </button>
+
+  <h1 class="text-16px-bold">{{ title }}</h1>
 </header>
 
 @if (sidebarOpen()) {

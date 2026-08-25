@@ -1,12 +1,11 @@
 import { AsyncPipe, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
-import { SidebarItemComponent } from './sidebar-item/sidebar-item.component';
+import { ChangeDetectionStrategy, Component, computed, inject, output } from '@angular/core';
+import { SidebarNavItemComponent } from './sidebar-nav-item/sidebar-nav-item.component';
 import { AccountService } from '../../../core/api/account.service';
 import { IAccount } from '../../../core/interfaces/api/account.model';
-import { SettingsItemComponent } from './settings-item/settings-item.component';
 import { filter, map, Observable, switchMap } from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
-import { SubscriberCardComponent } from './subscriber-card/subscriber-card.component';
+import { SidebarUserItemComponent } from './sidebar-user-item/sidebar-user-item.component';
 import { LoaderComponent } from '../../ui/loader/loader.component';
 
 export type MenuItem = {
@@ -18,19 +17,13 @@ export type MenuItem = {
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [
-    NgOptimizedImage,
-    SidebarItemComponent,
-    SettingsItemComponent,
-    AsyncPipe,
-    SubscriberCardComponent,
-    LoaderComponent,
-  ],
+  imports: [NgOptimizedImage, SidebarNavItemComponent, AsyncPipe, SidebarUserItemComponent, LoaderComponent],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarComponent {
+  readonly closeSidebar = output<void>();
   private accountService = inject(AccountService);
 
   readonly me = computed(() => this.accountService.me());

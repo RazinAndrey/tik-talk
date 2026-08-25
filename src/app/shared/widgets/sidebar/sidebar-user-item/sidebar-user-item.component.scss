@@ -1,0 +1,20 @@
+@use '../../../../../styles/sidebar-item' as sidebar;
+
+.sidebar-user-item {
+  @include sidebar.sidebar-item;
+
+  height: 40px;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.settings-icon {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translate(-50%, -50%);
+}
+
+.img-border-radius {
+  border-radius: 50%;
+}

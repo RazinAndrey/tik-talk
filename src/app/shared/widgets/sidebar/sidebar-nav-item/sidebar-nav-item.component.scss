@@ -1,0 +1,18 @@
+@use '../../../../../styles/sidebar-item' as sidebar;
+
+.sidebar-item {
+  @include sidebar.sidebar-item;
+
+  padding: 0 16px;
+}
+
+.number-messages {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-color);
+  max-width: max-content;
+  padding: 2px 6px;
+  color: var(--dark-color);
+}

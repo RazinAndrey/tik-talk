@@ -2,18 +2,13 @@
   display: grid;
   grid-template-columns: 300px 1fr;
   height: 100vh;
-  position: relative;
 }
 
 .header {
-  background: var(--dark-color);
-  margin-bottom: 16px;
   display: none;
 }
 
 .burger {
-  width: 40px;
-  height: 40px;
   align-items: center;
   justify-content: center;
   background: transparent;
@@ -41,15 +36,24 @@ app-sidebar {
 
 @media (width <= 1200px) {
   :host {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
   }
 
-  .burger {
+  .header {
+    background: var(--dark-color);
     display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    flex-shrink: 0;
   }
 
   .main-content {
-    padding-top: 72px; // место под бургер
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
   }
 
   app-sidebar {

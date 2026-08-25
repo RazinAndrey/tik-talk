@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { SidebarComponent } from '../widgets/sidebar/sidebar.component';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { AccountService } from '../../core/api/account.service';
 import { switchMap } from 'rxjs';
 import { SvgIconComponent } from '../ui/svg-icon/svg-icon.component';
@@ -14,9 +14,14 @@ import { SvgIconComponent } from '../ui/svg-icon/svg-icon.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutMainComponent implements OnInit {
-  private accountService = inject(AccountService);
+  private readonly accountService = inject(AccountService);
+  private readonly route = inject(ActivatedRoute);
 
   readonly sidebarOpen = signal(false);
+
+  get title(): string {
+    return this.route.firstChild?.snapshot.title ?? '';
+  }
 
   toggleSidebar(): void {
     this.sidebarOpen.update((v) => !v);

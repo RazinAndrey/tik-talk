@@ -2,9 +2,9 @@
 
 <nav>
   <ul class="sidebar-list">
-    @for (item of menuItems; track $index) {
+    @for (item of menuItems; track item.link) {
       <li>
-        <app-sidebar-item [item]="item" />
+        <app-sidebar-nav-item [item]="item" />
       </li>
     }
   </ul>
@@ -14,8 +14,8 @@
   <p class="subscribers__title text-12px-medium">Подписчики</p>
   @if (subscribers$ | async; as subscribers) {
     <div class="subscribers__list">
-      @for (subscriber of subscribers; track $index) {
-        <app-subscriber-card [profile]="subscriber" />
+      @for (subscriber of subscribers; track subscriber.id) {
+        <app-sidebar-user-item [profile]="subscriber" [link]="'/profile/' + subscriber.id" />
       }
     </div>
 
@@ -36,7 +36,7 @@
 
 <footer class="settings">
   @if (me(); as me) {
-    <app-settings-item [profile]="me" />
+    <app-sidebar-user-item [profile]="me" link="/settings" [showIconSettings]="true" />
   } @else {
     Загрузка...
   }

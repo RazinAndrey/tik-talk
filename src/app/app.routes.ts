@@ -13,11 +13,12 @@ export const routes: Routes = [
     path: '',
     component: LayoutMainComponent,
     children: [
-      { path: '', component: SearchPageComponent },
-      { path: 'profile', component: ProfilePageComponent },
-      { path: 'chats', component: ChatsPageComponent },
-      { path: 'search', component: SearchPageComponent },
-      { path: 'settings', component: SettingsPageComponent },
+      { path: '', redirectTo: 'search', pathMatch: 'full' },
+
+      { path: 'profile', component: ProfilePageComponent, title: 'Профиль' },
+      { path: 'chats', component: ChatsPageComponent, title: 'Чаты' },
+      { path: 'search', component: SearchPageComponent, title: 'Поиск' },
+      { path: 'settings', component: SettingsPageComponent, title: 'Настройки' },
     ],
     canActivate: [authGuard],
   },

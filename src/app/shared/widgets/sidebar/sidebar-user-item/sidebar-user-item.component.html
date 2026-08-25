@@ -1,0 +1,23 @@
+@if (profile(); as profile) {
+  <a class="sidebar-user-item" [routerLink]="link()">
+    <img
+      class="img-border-radius"
+      [ngSrc]="profile.avatarUrl ? (profile.avatarUrl | imgUrl) : 'assets/images/avatar.png'"
+      [height]="32"
+      [width]="32"
+      alt=""
+    />
+
+    <strong>
+      @if (profile.firstName && profile.lastName) {
+        {{ profile.firstName }} {{ profile.lastName }}
+      } @else {
+        {{ profile.username }}
+      }
+    </strong>
+
+    @if (showIconSettings()) {
+      <svg class="settings-icon" icon="settings" directory="navbar"></svg>
+    }
+  </a>
+}

@@ -3,15 +3,18 @@ import { IAccount } from '../../../../core/interfaces/api/account.model';
 import { NgOptimizedImage } from '@angular/common';
 import { ImgUrlPipe } from '../../../pipes/img-url.pipe';
 import { RouterLink } from '@angular/router';
+import { SvgIconComponent } from '../../../ui/svg-icon/svg-icon.component';
 
 @Component({
-  selector: 'app-subscriber-card',
+  selector: 'app-sidebar-user-item',
   standalone: true,
-  imports: [NgOptimizedImage, ImgUrlPipe, RouterLink],
-  templateUrl: './subscriber-card.component.html',
-  styleUrl: './subscriber-card.component.scss',
+  imports: [NgOptimizedImage, ImgUrlPipe, RouterLink, SvgIconComponent],
+  templateUrl: './sidebar-user-item.component.html',
+  styleUrl: './sidebar-user-item.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SubscriberCardComponent {
+export class SidebarUserItemComponent {
   profile = input.required<IAccount>();
+  link = input.required<string>();
+  showIconSettings = input(false);
 }
