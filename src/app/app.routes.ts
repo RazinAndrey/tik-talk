@@ -15,7 +15,7 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'search', pathMatch: 'full' },
 
-      { path: 'profile', component: ProfilePageComponent, title: 'Профиль' },
+      { path: 'profile/:id', component: ProfilePageComponent, title: 'Профиль' },
       { path: 'chats', component: ChatsPageComponent, title: 'Чаты' },
       { path: 'search', component: SearchPageComponent, title: 'Поиск' },
       { path: 'settings', component: SettingsPageComponent, title: 'Настройки' },

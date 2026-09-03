@@ -1,0 +1,21 @@
+:host {
+  display: grid;
+  gap: 48px;
+  grid-template-columns: 380px 1fr;
+}
+
+.preview {
+  width: 100%;
+}
+
+.form-settings {
+  border: 1px solid var(--light-color);
+  width: 100%;
+  background: var(--dark-color);
+  padding: 2rem;
+
+  &__name {
+    display: flex;
+    gap: 20px;
+  }
+}

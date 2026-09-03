@@ -78,3 +78,9 @@ app-sidebar {
     z-index: 10;
   }
 }
+
+@media (width <= 360px) {
+  app-sidebar {
+    width: 260px;
+  }
+}

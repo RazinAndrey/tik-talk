@@ -28,6 +28,12 @@ export class AccountService extends SignalStoreService<IAccountState> {
     return this.http.get<IAccount>(`${this.baseApiUrl}/me`).pipe(tap((account) => this.me.set(account)));
   }
 
+  // Aккаунты
+
+  getAccount(account_id: number): Observable<IAccount> {
+    return this.http.get<IAccount>(`${this.baseApiUrl}/${account_id}`);
+  }
+
   getAccounts(): Observable<IAccount[]> {
     return this.http.get<IAccount[]>(`${this.baseApiUrl}/accounts`);
   }

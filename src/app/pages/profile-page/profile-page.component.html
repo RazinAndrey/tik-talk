@@ -1,3 +1,71 @@
-<p>profile-info works!</p>
+<section class="profile-page">
+  @if (profile$ | async; as profile) {
+    <section class="profile-page__header">
+      <app-profile-header [profile]="profile" />
 
-<button type="button" (click)="authService.logout().subscribe()">Выход</button>
+      <div class="profile-page__inner">
+        <a app-button routerLink="/settings">
+          Редактировать
+
+          <img width="16" height="16" ngSrc="assets/icons/navbar/settings.svg" alt="" />
+        </a>
+      </div>
+    </section>
+
+    <section class="profile-page__body">
+      <div class="bla bla"></div>
+
+      <div class="profile-page__inner">
+        <div class="subscribers mb-32px">
+          <div class="subscribers__title">
+            <h3 class="h6">Подписчики</h3>
+            <p class="subscribers__amount text-btn-12px">{{ profile.subscribersAmount }}</p>
+          </div>
+
+          @if (subscribers$ | async; as subscribers) {
+            <div class="subscribers__list">
+              @for (subscriber of subscribers.items; track $index) {
+                <a [routerLink]="['/profile', subscriber.id]" class="subscribers__item">
+                  <app-avatar [avatarUrl]="subscriber.avatarUrl" [width]="36" [height]="36" />
+                </a>
+              }
+              <a routerLink="/search" class="subscribers__plus">+</a>
+            </div>
+          } @else {
+            <div class="subscribers__list">
+              @for (_ of skeletons; track $index) {
+                <span class="subscribers__skeleton"></span>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="skills mb-32px">
+          <h3 class="h6 mb-16px">Навыки</h3>
+
+          <div class="skills__list">
+            @if (hasValidStack(profile.stack)) {
+              @for (tag of profile.stack; track tag) {
+                <app-skill-tag [tag]="tag" />
+              }
+            } @else {
+              <p class="text-12px-medium">-</p>
+            }
+          </div>
+        </div>
+
+        <div class="mb-32px">
+          <h3 class="h6 mb-16px">О себе</h3>
+
+          @if (profile.description) {
+            <p class="text-12px-medium">
+              {{ profile.description }}
+            </p>
+          } @else {
+            <p class="text-12px-medium">-</p>
+          }
+        </div>
+      </div>
+    </section>
+  }
+</section>

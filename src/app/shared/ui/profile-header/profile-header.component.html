@@ -1,0 +1,8 @@
+@if (profile(); as profile) {
+  <app-avatar [avatarUrl]="profile.avatarUrl" [width]="112" [height]="112" />
+
+  <div class="username-and-name">
+    <h4 class="h4">{{ profile.lastName }} {{ profile.firstName }}</h4>
+    <span class="text-14px-regular">{{ profile.username }}</span>
+  </div>
+}
