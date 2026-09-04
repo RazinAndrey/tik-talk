@@ -15,7 +15,14 @@
   padding: 2rem;
 
   &__name {
+    width: 100%;
     display: flex;
     gap: 20px;
   }
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }

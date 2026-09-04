@@ -1,5 +1,36 @@
-.l-form {
-  display: flex;
+@use '../../../../styles/secondary-text-labels' as typography;
+
+:host {
   width: 100%;
   background: var(--dark-color);
+}
+
+.label-form {
+  color: var(--placeholder-gray);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.input-form {
+  @include typography.text-14px-regular;
+
+  width: 100%;
+  padding: 12px 0;
+  background: var(--dark-color);
+  border: none;
+  border-bottom: 1px solid var(--light-color);
+  color: var(--light-color);
+
+  &::placeholder {
+    @include typography.text-14px-regular;
+
+    color: var(--placeholder-gray);
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-bottom: 1px solid var(--primary-color);
+  }
 }
