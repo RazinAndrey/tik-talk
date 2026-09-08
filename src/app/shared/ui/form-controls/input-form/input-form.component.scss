@@ -1,4 +1,4 @@
-@use '../../../../styles/secondary-text-labels' as typography;
+@use '../../../../../styles/secondary-text-labels' as typography;
 
 :host {
   width: 100%;
@@ -32,5 +32,9 @@
   &:focus-visible {
     outline: none;
     border-bottom: 1px solid var(--primary-color);
+  }
+
+  &.ng-invalid {
+    border-bottom: var(--secondary-color-02);
   }
 }

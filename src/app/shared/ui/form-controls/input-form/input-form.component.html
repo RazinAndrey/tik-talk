@@ -1,0 +1,13 @@
+<label [for]="id()" class="label-form">
+  <span class="text-12px-medium">{{ title() }}</span>
+  <input
+    [ngModel]="value"
+    (ngModelChange)="onModalChange($event)"
+    (blur)="handleBlur()"
+    [disabled]="disabled()"
+    [type]="type()"
+    [placeholder]="placeholder()"
+    [id]="id()"
+    class="input-form"
+  />
+</label>

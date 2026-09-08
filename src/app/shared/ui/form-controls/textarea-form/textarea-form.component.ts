@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-input-form',
+  selector: 'app-textarea-form',
   standalone: true,
   imports: [],
-  templateUrl: './input-form.component.html',
-  styleUrl: './input-form.component.scss',
+  templateUrl: './textarea-form.component.html',
+  styleUrl: './textarea-form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InputFormComponent {}
+export class TextareaFormComponent {}

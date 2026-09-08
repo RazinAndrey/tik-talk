@@ -1,23 +1,30 @@
 <!-- profile-header -->
 <div></div>
 
-<form class="form-settings" [formGroup]="formSettings">
+<form class="form-settings" [formGroup]="formSettings" (ngSubmit)="onSave()">
   <div class="form-settings__name">
-    <app-input-form />
-    <app-input-form />
+    <app-input-form title="Имя" type="text" placeholder="Введите данные" formControlName="firstName" id="firstName" />
+    <app-input-form title="Фамилия" type="text" placeholder="Введите данные" formControlName="lastName" id="lastName" />
   </div>
 
-  <input type="text" />
-  <input type="text" />
+  <app-input-form title="Фамилия" type="text" placeholder="Введите данные" formControlName="lastName" id="lastName" />
+
+  <app-input-form
+    title="О себе"
+    type="text"
+    placeholder="Введите данные"
+    formControlName="description"
+    id="description"
+  />
 
   <div class="actions">
-    <div class="actions__">
+    <div>
       <button type="button">удалить</button>
       <button type="button">выйти</button>
     </div>
-    <div class="">
+    <div>
       <button type="button">Отмена</button>
-      <button type="button">Сохранить</button>
+      <button type="submit">Сохранить</button>
     </div>
   </div>
 </form>
